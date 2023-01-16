@@ -42,4 +42,13 @@ public class ProductService {
     public void 상품삭제(Integer productId) {
         productDao.deleteById(productId);
     }
+
+    public Boolean 상품이름중복체크(String productName) {
+        Product productPS = productDao.findByProductName(productName);
+        if (productPS != null) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }

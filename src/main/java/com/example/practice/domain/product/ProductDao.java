@@ -23,4 +23,7 @@ public interface ProductDao {
 
     // 상품삭제
     public int deleteById(Integer productId);
+
+    // 상품이름 중복체크
+    public Product findByProductName(String productName);
 }

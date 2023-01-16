@@ -7,12 +7,15 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.example.practice.service.ProductService;
 import com.example.practice.web.dto.ProductDetailRespDto;
 import com.example.practice.web.dto.ProductListRespDto;
 import com.example.practice.web.dto.ProductSaveReqDto;
 import com.example.practice.web.dto.ProductUpdateReqDto;
+import com.example.practice.web.dto.ResponseDto;
 
 import lombok.RequiredArgsConstructor;
 
@@ -37,9 +40,9 @@ public class ProductController {
     }
 
     @PostMapping("/product/save")
-    public String productSave(ProductSaveReqDto productSaveReqDto) {
+    public @ResponseBody ResponseDto<?> productSave(@RequestBody ProductSaveReqDto productSaveReqDto) {
         productService.상품등록(productSaveReqDto);
-        return "redirect:/";
+        return new ResponseDto<>(1, "상품등록 성공", null);
     }
 
     // 상품상세보기
@@ -69,6 +72,13 @@ public class ProductController {
     public String productDelete(@PathVariable Integer productId) {
         productService.상품삭제(productId);
         return "redirect:/";
+    }
+
+    // 상품이름 중복체크
+    @GetMapping("/product/samecheck/{productName}")
+    public @ResponseBody ResponseDto<?> sameCheckName(@PathVariable String productName) {
+        Boolean isSame = productService.상품이름중복체크(productName);
+        return new ResponseDto<>(1, "중복체크성공", isSame);
     }
 
 }
