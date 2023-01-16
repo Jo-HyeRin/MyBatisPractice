@@ -17,6 +17,9 @@
             $("#btnJoinSeller").click(() => {
                 location.href = "/join/seller";
             });
+            $("#btnJoinBuyer").click(() => {
+                location.href = "/join/buyer";
+            });
         </script>
 
         <%@ include file="../layout/footer.jsp" %>

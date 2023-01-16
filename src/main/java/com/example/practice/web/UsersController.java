@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.example.practice.service.UsersService;
 import com.example.practice.web.dto.ResponseDto;
+import com.example.practice.web.dto.users.JoinBuyerReqDto;
 import com.example.practice.web.dto.users.JoinSellerReqDto;
 
 import lombok.RequiredArgsConstructor;
@@ -38,9 +39,16 @@ public class UsersController {
         return new ResponseDto<>(1, "판매자 회원가입 성공", null);
     }
 
+    // 구매자 회원가입
     @GetMapping("/join/buyer")
     public String joinBuyerForm() {
         return "/users/joinBuyer";
+    }
+
+    @PostMapping("/join/buyer")
+    public @ResponseBody ResponseDto<?> joinBuyer(@RequestBody JoinBuyerReqDto joinbuyerReqDto) {
+        usersService.구매자회원가입(joinbuyerReqDto);
+        return new ResponseDto<>(1, "구매자 회원가입 성공", null);
     }
 
     @GetMapping("/login")

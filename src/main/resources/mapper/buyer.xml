@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.practice.domain.buyer.BuyerDao">
+
+<insert id="insert" useGeneratedKeys="true" keyProperty="buyerId">
+    insert into buyer(buyer_name, buyer_email, users_id, created_at)
+    values(#{buyerName}, #{buyerEmail}, #{usersId}, NOW())
+</insert>
+
+</mapper>

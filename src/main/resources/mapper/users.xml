@@ -12,4 +12,9 @@
     values(#{username}, #{password}, "seller", NOW())
 </insert>
 
+<insert id="insertBuyer" useGeneratedKeys="true" keyProperty="usersId">
+    insert into users(username, password, role, created_at)
+    values(#{username}, #{password}, "buyer", NOW())
+</insert>
+
 </mapper>
