@@ -33,7 +33,7 @@
                                         <a class="nav-link" href="/product/list">상품목록</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="/logout">로그아웃</a>
+                                        <a class="nav-link" href="/logout" onclick="disconnect()">로그아웃</a>
                                     </li>
                                 </c:when>
                                 <c:otherwise>
@@ -44,7 +44,7 @@
                                         <a class="nav-link" href="/product/save">상품등록</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="/logout">로그아웃</a>
+                                        <a class="nav-link" href="/logout" onclick="disconnect()">로그아웃</a>
                                     </li>
                                 </c:otherwise>
                             </c:choose>
@@ -52,3 +52,9 @@
                     </div>
                 </div>
             </nav>
+
+            <script>
+                function disconnect() {
+                    alert("로그아웃 되었습니다");
+                }
+            </script>

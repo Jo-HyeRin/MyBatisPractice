@@ -69,4 +69,11 @@ public class UsersController {
         return new ResponseDto<>(1, "로그인 성공", principal);
     }
 
+    // 로그아웃
+    @GetMapping("/logout")
+    public String logout() {
+        session.invalidate();
+        return "redirect:/";
+    }
+
 }
