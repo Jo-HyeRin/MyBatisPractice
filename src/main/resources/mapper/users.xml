@@ -17,4 +17,9 @@
     values(#{username}, #{password}, "buyer", NOW())
 </insert>
 
+<select id="findByUsernameAndPassword"
+		resultType="com.example.practice.web.dto.users.SignedDto">
+    select users_id, username, role from users WHERE username = #{username} AND password = #{password}
+</select>
+
 </mapper>

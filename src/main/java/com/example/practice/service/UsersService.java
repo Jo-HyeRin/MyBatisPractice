@@ -9,6 +9,8 @@ import com.example.practice.domain.users.Users;
 import com.example.practice.domain.users.UsersDao;
 import com.example.practice.web.dto.users.JoinBuyerReqDto;
 import com.example.practice.web.dto.users.JoinSellerReqDto;
+import com.example.practice.web.dto.users.LoginDto;
+import com.example.practice.web.dto.users.SignedDto;
 
 import lombok.RequiredArgsConstructor;
 
@@ -43,5 +45,16 @@ public class UsersService {
         usersDao.insertBuyer(joinBuyerReqDto);
         // 셀러 등록
         buyerDao.insert(joinBuyerReqDto);
+    }
+
+    @Transactional
+    public SignedDto 로그인(LoginDto loginDto) {
+        SignedDto principal = usersDao.findByUsernameAndPassword(loginDto.getUsername(), loginDto.getPassword());
+
+        if (principal == null) {
+            return null;
+        }
+
+        return principal;
     }
 }

@@ -1,5 +1,7 @@
 package com.example.practice.web;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -11,6 +13,8 @@ import com.example.practice.service.UsersService;
 import com.example.practice.web.dto.ResponseDto;
 import com.example.practice.web.dto.users.JoinBuyerReqDto;
 import com.example.practice.web.dto.users.JoinSellerReqDto;
+import com.example.practice.web.dto.users.LoginDto;
+import com.example.practice.web.dto.users.SignedDto;
 
 import lombok.RequiredArgsConstructor;
 
@@ -19,6 +23,7 @@ import lombok.RequiredArgsConstructor;
 public class UsersController {
 
     private final UsersService usersService;
+    private final HttpSession session;
 
     // 아이디 중복체크
     @GetMapping("/users/samecheck/{username}")
@@ -51,9 +56,17 @@ public class UsersController {
         return new ResponseDto<>(1, "구매자 회원가입 성공", null);
     }
 
+    // 로그인
     @GetMapping("/login")
     public String loginForm() {
         return "/users/login";
+    }
+
+    @PostMapping("/login")
+    public @ResponseBody ResponseDto<?> login(@RequestBody LoginDto loginDto) {
+        SignedDto principal = usersService.로그인(loginDto);
+        session.setAttribute("principal", principal);
+        return new ResponseDto<>(1, "로그인 성공", principal);
     }
 
 }

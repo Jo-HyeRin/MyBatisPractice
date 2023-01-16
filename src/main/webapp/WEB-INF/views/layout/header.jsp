@@ -32,6 +32,9 @@
                                     <li class="nav-item">
                                         <a class="nav-link" href="/product/list">상품목록</a>
                                     </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="/logout">로그아웃</a>
+                                    </li>
                                 </c:when>
                                 <c:otherwise>
                                     <li class="nav-item">
@@ -39,6 +42,9 @@
                                     </li>
                                     <li class="nav-item">
                                         <a class="nav-link" href="/product/save">상품등록</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="/logout">로그아웃</a>
                                     </li>
                                 </c:otherwise>
                             </c:choose>
