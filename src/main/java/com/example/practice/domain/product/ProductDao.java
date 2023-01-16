@@ -21,5 +21,6 @@ public interface ProductDao {
 
     public void update(Product product);
 
+    // 상품삭제
     public int deleteById(Integer productId);
 }

@@ -64,4 +64,11 @@ public class ProductController {
         return "redirect:/product/detail/" + productId;
     }
 
+    // 상품삭제
+    @PostMapping("/product/delete/{productId}")
+    public String productDelete(@PathVariable Integer productId) {
+        productService.상품삭제(productId);
+        return "redirect:/";
+    }
+
 }

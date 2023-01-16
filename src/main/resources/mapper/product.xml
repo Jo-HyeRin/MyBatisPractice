@@ -29,5 +29,8 @@
 	SET product_name = #{productName}, product_price = #{productPrice}, product_qty = #{productQty}
 </update>
 
+<delete id="deleteById">
+    delete from product where product_id = #{productId}
+</delete>
 
 </mapper>

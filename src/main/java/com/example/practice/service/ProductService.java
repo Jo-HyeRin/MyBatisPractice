@@ -38,4 +38,8 @@ public class ProductService {
         productPS.update(productUpdateReqDto);
         productDao.update(productPS);
     }
+
+    public void 상품삭제(Integer productId) {
+        productDao.deleteById(productId);
+    }
 }
