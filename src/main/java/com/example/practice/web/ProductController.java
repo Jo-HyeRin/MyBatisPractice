@@ -5,9 +5,11 @@ import java.util.List;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.example.practice.service.ProductService;
+import com.example.practice.web.dto.ProductDetailRespDto;
 import com.example.practice.web.dto.ProductListRespDto;
 import com.example.practice.web.dto.ProductSaveReqDto;
 
@@ -39,8 +41,11 @@ public class ProductController {
         return "redirect:/";
     }
 
-    @GetMapping("/product/detail")
-    public String productDetail() {
+    // 상품상세보기
+    @GetMapping("/product/detail/{productId}")
+    public String productDetail(@PathVariable Integer productId, Model model) {
+        ProductDetailRespDto productDetail = productService.상품상세보기(productId);
+        model.addAttribute("productDetail", productDetail);
         return "productDetail";
     }
 

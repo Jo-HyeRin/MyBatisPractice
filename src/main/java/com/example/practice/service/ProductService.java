@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.example.practice.domain.product.ProductDao;
+import com.example.practice.web.dto.ProductDetailRespDto;
 import com.example.practice.web.dto.ProductListRespDto;
 import com.example.practice.web.dto.ProductSaveReqDto;
 
@@ -24,5 +25,9 @@ public class ProductService {
 
     public List<ProductListRespDto> 상품목록() {
         return productDao.findAll();
+    }
+
+    public ProductDetailRespDto 상품상세보기(Integer productId) {
+        return productDao.findById(productId);
     }
 }

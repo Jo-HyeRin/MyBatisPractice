@@ -16,8 +16,10 @@
                     <c:forEach var="productList" items="${productList}">
                         <tr>
                             <td>${productList.row}</td>
-                            <td>${productList.productName}</td>
-                            <td>${productList.productPrice}</a></td>
+                            <td>
+                                <a href="/product/detail/${productList.productId}">${productList.productName}</a>
+                            </td>
+                            <td>${productList.productPrice}</td>
                             <td>${productList.productQty}</td>
                             <td>${productList.createdAt}</td>
                         </tr>
