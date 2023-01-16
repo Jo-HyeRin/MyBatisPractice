@@ -15,7 +15,7 @@
         <body>
             <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
                 <div class="container-fluid">
-                    <a class="navbar-brand" href="">Practice</a>
+                    <a class="navbar-brand" href="/">Practice</a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                         data-bs-target="#collapsibleNavbar">
                         <span class="navbar-toggler-icon"></span>
@@ -23,19 +23,19 @@
                     <div class="collapse navbar-collapse" id="collapsibleNavbar">
                         <ul class="navbar-nav">
                             <li class="nav-item">
-                                <a class="nav-link" href="">상품목록</a>
+                                <a class="nav-link" href="/product/list">상품목록</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="">상품등록</a>
+                                <a class="nav-link" href="/product/save">상품등록</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="">상품상세보기</a>
+                                <a class="nav-link" href="/product/detail">상품상세보기</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="">상품수정</a>
+                                <a class="nav-link" href="/product/update">상품수정</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="">상품삭제</a>
+                                <a class="nav-link" href="/product/delete">상품삭제</a>
                             </li>
                         </ul>
                     </div>
