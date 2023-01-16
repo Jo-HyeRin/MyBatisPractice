@@ -2,12 +2,15 @@ package com.example.practice.domain.product;
 
 import java.util.List;
 
+import com.example.practice.web.dto.ProductSaveReqDto;
+
 public interface ProductDao {
     public Product findById(Integer productId);
 
     public List<Product> findAll();
 
-    public int insert(Product product);
+    // 상품등록
+    public void insert(ProductSaveReqDto productSaveReqDto);
 
     public int update(Product product);
 
