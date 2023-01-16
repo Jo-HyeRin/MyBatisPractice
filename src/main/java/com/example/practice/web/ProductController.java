@@ -30,13 +30,13 @@ public class ProductController {
     public String productList(Model model) {
         List<ProductListRespDto> productList = productService.상품목록();
         model.addAttribute("productList", productList);
-        return "productList";
+        return "/product/productList";
     }
 
     // 상품등록
     @GetMapping("/product/save")
     public String productSaveForm() {
-        return "productSave";
+        return "/product/productSave";
     }
 
     @PostMapping("/product/save")
@@ -50,7 +50,7 @@ public class ProductController {
     public String productDetail(@PathVariable Integer productId, Model model) {
         ProductDetailRespDto productDetail = productService.상품상세보기(productId);
         model.addAttribute("productDetail", productDetail);
-        return "productDetail";
+        return "/product/productDetail";
     }
 
     // 상품수정
@@ -58,7 +58,7 @@ public class ProductController {
     public String productUpdateForm(@PathVariable Integer productId, Model model) {
         ProductDetailRespDto productDetail = productService.상품상세보기(productId);
         model.addAttribute("productDetail", productDetail);
-        return "productUpdate";
+        return "/product/productUpdate";
     }
 
     @PostMapping("/product/update/{productId}")
