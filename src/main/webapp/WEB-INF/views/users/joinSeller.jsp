@@ -22,36 +22,6 @@
             <button id="btnJoinSeller" type="button" class="btn btn-primary">판매자회원가입</button>
         </form>
 
-        <script>
-            $("#btnJoinSeller").click(() => {
-                joinSeller();
-            });
-
-            function joinSeller() {
-                let data = {
-                    username: $("#username").val(),
-                    password: $("#password").val(),
-                    sellerName: $("#sellerName").val(),
-                    sellerEmail: $("#sellerEmail").val()
-                };
-
-                $.ajax("/join/seller", {
-                    type: "POST",
-                    dataType: "json",
-                    data: JSON.stringify(data),
-                    headers: {
-                        "Content-Type": "application/json; charset=utf-8"
-                    },
-                }).done((res) => {
-                    if (res.code == 1) {
-                        alert("판매자 회원가입 성공");
-                        location.href = "/login";
-                    } else {
-                        alert("가입 실패");
-                        return false;
-                    }
-                });
-            }
-        </script>
+        <script src="/js/joinSeller.js"></script>
 
         <%@ include file="../layout/footer.jsp" %>

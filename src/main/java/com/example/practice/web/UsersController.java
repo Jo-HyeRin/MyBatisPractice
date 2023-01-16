@@ -2,6 +2,7 @@ package com.example.practice.web;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -17,6 +18,13 @@ import lombok.RequiredArgsConstructor;
 public class UsersController {
 
     private final UsersService usersService;
+
+    // 아이디 중복체크
+    @GetMapping("/users/samecheck/{username}")
+    public @ResponseBody ResponseDto<?> sameCheckUsername(@PathVariable String username) {
+        Boolean isSame = usersService.아이디중복체크(username);
+        return new ResponseDto<>(1, "중복체크 성공", isSame);
+    }
 
     // 판매자 회원가입
     @GetMapping("/join/seller")
