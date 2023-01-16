@@ -13,4 +13,10 @@
             <button id="btnJoinBuyer" type="button" class="btn btn-primary">구매자회원가입</button>
         </form>
 
+        <script>
+            $("#btnJoinSeller").click(() => {
+                location.href = "/join/seller";
+            });
+        </script>
+
         <%@ include file="../layout/footer.jsp" %>
