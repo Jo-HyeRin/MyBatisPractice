@@ -17,6 +17,7 @@
             $("#btnJoinSeller").click(() => {
                 location.href = "/join/seller";
             });
+
             $("#btnJoinBuyer").click(() => {
                 location.href = "/join/buyer";
             });

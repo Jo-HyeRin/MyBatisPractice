@@ -22,12 +22,26 @@
                     </button>
                     <div class="collapse navbar-collapse" id="collapsibleNavbar">
                         <ul class="navbar-nav">
-                            <li class="nav-item">
-                                <a class="nav-link" href="/product/list">상품목록</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="/product/save">상품등록</a>
-                            </li>
+                            <c:choose>
+                                <c:when test="${empty principal}">
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="/login">로그인/회원가입</a>
+                                    </li>
+                                </c:when>
+                                <c:when test="${principal.role == 'buyer'}">
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="/product/list">상품목록</a>
+                                    </li>
+                                </c:when>
+                                <c:otherwise>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="/product/list">상품목록</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="/product/save">상품등록</a>
+                                    </li>
+                                </c:otherwise>
+                            </c:choose>
                         </ul>
                     </div>
                 </div>
