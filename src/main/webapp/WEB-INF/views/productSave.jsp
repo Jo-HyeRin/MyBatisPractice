@@ -23,6 +23,27 @@
                     alert("상품이름 중복체크를 해주세요");
                     return;
                 }
+
+                if (koreanCheckPrice()) {
+                    alert("가격에는 숫자만 입력하세요");
+                    return;
+                }
+
+                if (koreanCheckQty()) {
+                    alert("수량에는 숫자만 입력하세요");
+                    return;
+                }
+
+                if (blankCheckPrice() == false) {
+                    alert("가격에 공백이 있으면 안됩니다");
+                    return;
+                }
+
+                if (blankCheckQty() == false) {
+                    alert("수량에 공백이 있으면 안됩니다");
+                    return;
+                }
+
                 saveProduct();
             });
 
@@ -51,6 +72,7 @@
                 });
             }
 
+            // 중복체크
             $("#btnSameCheckName").click(() => {
                 sameCheckName();
             });
@@ -75,6 +97,54 @@
                     }
                 });
             }
+
+            // 한글체크
+            function koreanCheckPrice() {
+                let productPrice = $("#productPrice").val();
+
+                let korRule = /[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]/;
+                if (korRule.test(productPrice)) {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+
+            function koreanCheckQty() {
+                let productQty = $("#productQty").val();
+
+                let korRule = /[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]/;
+                if (korRule.test(productQty)) {
+                    return true;
+                } else {
+                    return false;
+                }
+
+            }
+
+            // 공백체크
+            function blankCheckPrice() {
+                let productPrice = $("#productPrice").val();
+                let reg = /\s/g;
+
+                if (reg.test(productPrice)) {
+                    return false;
+                } else {
+                    return true;
+                }
+            }
+
+            function blankCheckQty() {
+                let productQty = $("#productQty").val();
+                let reg = /\s/g;
+
+                if (reg.test(productQty)) {
+                    return false;
+                } else {
+                    return true;
+                }
+            }
+
         </script>
 
         <%@ include file="layout/footer.jsp" %>
