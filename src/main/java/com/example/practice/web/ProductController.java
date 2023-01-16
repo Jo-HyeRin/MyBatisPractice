@@ -12,6 +12,7 @@ import com.example.practice.service.ProductService;
 import com.example.practice.web.dto.ProductDetailRespDto;
 import com.example.practice.web.dto.ProductListRespDto;
 import com.example.practice.web.dto.ProductSaveReqDto;
+import com.example.practice.web.dto.ProductUpdateReqDto;
 
 import lombok.RequiredArgsConstructor;
 
@@ -49,9 +50,18 @@ public class ProductController {
         return "productDetail";
     }
 
-    @GetMapping("/product/update")
-    public String productUpdate() {
+    // 상품수정
+    @GetMapping("/product/update/{productId}")
+    public String productUpdateForm(@PathVariable Integer productId, Model model) {
+        ProductDetailRespDto productDetail = productService.상품상세보기(productId);
+        model.addAttribute("productDetail", productDetail);
         return "productUpdate";
+    }
+
+    @PostMapping("/product/update/{productId}")
+    public String productUpdate(@PathVariable Integer productId, ProductUpdateReqDto productUpdateReqDto) {
+        productService.상품수정(productId, productUpdateReqDto);
+        return "redirect:/product/detail/" + productId;
     }
 
 }

@@ -28,12 +28,6 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="/product/save">상품등록</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="/product/update">상품수정</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="/product/delete">상품삭제</a>
-                            </li>
                         </ul>
                     </div>
                 </div>

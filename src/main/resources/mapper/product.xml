@@ -18,4 +18,16 @@
     WHERE product_id = #{productId}
 </select>
 
+<select id="findByIdForUpdate"
+		resultType="com.example.practice.domain.product.Product">
+    select * from product
+    WHERE product_id = #{productId}
+</select>
+
+<update id="update">
+    UPDATE product
+	SET product_name = #{productName}, product_price = #{productPrice}, product_qty = #{productQty}
+</update>
+
+
 </mapper>

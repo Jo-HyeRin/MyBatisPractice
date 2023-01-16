@@ -16,7 +16,10 @@ public interface ProductDao {
     // 상품등록
     public void insert(ProductSaveReqDto productSaveReqDto);
 
-    public int update(Product product);
+    // 상품수정
+    public Product findByIdForUpdate(Integer productId);
+
+    public void update(Product product);
 
     public int deleteById(Integer productId);
 }
