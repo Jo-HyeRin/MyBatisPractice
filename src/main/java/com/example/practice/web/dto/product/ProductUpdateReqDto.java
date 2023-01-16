@@ -1,4 +1,4 @@
-package com.example.practice.web.dto;
+package com.example.practice.web.dto.product;
 
 import lombok.Getter;
 import lombok.Setter;

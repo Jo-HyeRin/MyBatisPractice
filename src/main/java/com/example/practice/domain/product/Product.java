@@ -2,8 +2,8 @@ package com.example.practice.domain.product;
 
 import java.sql.Timestamp;
 
-import com.example.practice.web.dto.ProductSaveReqDto;
-import com.example.practice.web.dto.ProductUpdateReqDto;
+import com.example.practice.web.dto.product.ProductSaveReqDto;
+import com.example.practice.web.dto.product.ProductUpdateReqDto;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;

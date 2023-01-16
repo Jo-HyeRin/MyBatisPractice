@@ -7,10 +7,10 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.example.practice.domain.product.Product;
 import com.example.practice.domain.product.ProductDao;
-import com.example.practice.web.dto.ProductDetailRespDto;
-import com.example.practice.web.dto.ProductListRespDto;
-import com.example.practice.web.dto.ProductSaveReqDto;
-import com.example.practice.web.dto.ProductUpdateReqDto;
+import com.example.practice.web.dto.product.ProductDetailRespDto;
+import com.example.practice.web.dto.product.ProductListRespDto;
+import com.example.practice.web.dto.product.ProductSaveReqDto;
+import com.example.practice.web.dto.product.ProductUpdateReqDto;
 
 import lombok.RequiredArgsConstructor;
 
@@ -41,5 +41,14 @@ public class ProductService {
 
     public void 상품삭제(Integer productId) {
         productDao.deleteById(productId);
+    }
+
+    public Boolean 상품이름중복체크(String productName) {
+        Product productPS = productDao.findByProductName(productName);
+        if (productPS != null) {
+            return true;
+        } else {
+            return false;
+        }
     }
 }

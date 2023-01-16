@@ -2,9 +2,9 @@ package com.example.practice.domain.product;
 
 import java.util.List;
 
-import com.example.practice.web.dto.ProductDetailRespDto;
-import com.example.practice.web.dto.ProductListRespDto;
-import com.example.practice.web.dto.ProductSaveReqDto;
+import com.example.practice.web.dto.product.ProductDetailRespDto;
+import com.example.practice.web.dto.product.ProductListRespDto;
+import com.example.practice.web.dto.product.ProductSaveReqDto;
 
 public interface ProductDao {
     // 상품상세보기
@@ -23,4 +23,7 @@ public interface ProductDao {
 
     // 상품삭제
     public int deleteById(Integer productId);
+
+    // 상품이름 중복체크
+    public Product findByProductName(String productName);
 }
