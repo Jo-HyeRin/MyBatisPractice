@@ -7,4 +7,9 @@
     values(#{productName}, #{productPrice}, #{productQty}, NOW())
 </insert>
 
+<select id="findAll"
+		resultType="com.example.practice.web.dto.ProductListRespDto">
+    select ROW_NUMBER() OVER (ORDER BY product_id ASC) AS row, product_id, product_name, product_price, product_qty, created_at from product
+</select>
+
 </mapper>

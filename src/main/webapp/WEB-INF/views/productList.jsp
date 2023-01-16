@@ -5,17 +5,23 @@
             <table class="table table-striped">
                 <thead>
                     <tr>
+                        <th>번호</th>
                         <th>상품명</th>
                         <th>상품가격</th>
                         <th>상품수량</th>
+                        <th>등록일시</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>상품이름자리</td>
-                        <td>상품가격자리</a></td>
-                        <td>상품수량자리</td>
-                    </tr>
+                    <c:forEach var="productList" items="${productList}">
+                        <tr>
+                            <td>${productList.row}</td>
+                            <td>${productList.productName}</td>
+                            <td>${productList.productPrice}</a></td>
+                            <td>${productList.productQty}</td>
+                            <td>${productList.createdAt}</td>
+                        </tr>
+                    </c:forEach>
                 </tbody>
             </table>
         </div>
